@@ -5,26 +5,83 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://kit.fontawesome.com/afe29dde86.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in", user_session_path %>
-        </li>
-      <% end %>
+  <body class = "d-flex flex-column vh-100">
+    <!--子要素をflex item化 上から順に縦並び 高さの指定-->
+    <header class ="bg-dark">
+      <nav class = "navbar navbar-expand-lg navbar-dark">
+        <div class ="container">
+          <a class = "nabvar-brand text-light" href="/"><h2>Bookers</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class ="navbar-nav ml-auto">
+              <%= link_to root_path do %>
+                <li class ="nav-item mr-2">
+                  <i class="fa-solid fa-house text-light"></i>
+                  <span class="text-light">Home</span>
+                </li>
+              <% end %>
+              <% if user_signed_in? %>
+                <%= link_to users_path do %>
+                  <li class="nav-item mr-2">
+                    <i class="fa-solid fa-users text-light"></i>
+                    <span class="text-light">Users</span>
+                  </li>
+                <% end %>
+                <%= link_to books_path do %>
+                  <li class="nav-item mr-2">
+                    <i class="fa-solid fa-book-open text-light"></i>
+                    <span class="text-light">Books</span>
+                  </li>
+                <% end %>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <li class ="nav-item">
+                    <i class="fa-solid fa-right-from-bracket  text-light"></i>
+                    <span class="text-light">Log out</span>
+                  </li>
+                <% end %>
+              <% else %>
+                <%= link_to about_path do %>
+                  <li class ="nav-item mr-2">
+                    <i class="fa-sharp fa-solid fa-link text-light"></i>
+                    <span class="text-light">About</span>
+                  </li>
+                <% end %>
+                <%= link_to new_user_registration_path do %>
+                  <li class ="nav-item mr-2">
+                    <i class="fa-solid fa-user-plus text-light"></i>
+                    <span class="text-light">Sign up</span>
+                  </li>
+                <% end %>
+                <%= link_to user_session_path do %>
+                  <li class ="nav-item">
+                    <i class="fa-solid fa-right-to-bracket text-light"></i>
+                    <span class="text-light">Log in</span>
+                  </li>
+                <% end %>
+                  <!--<%= link_to "Log in", user_session_path, class: 'd-inline-flex pl-0 nav-link text-light' %>-->
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
     <%= yield %>
+
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <p class="mx-auto text-secondary">CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
