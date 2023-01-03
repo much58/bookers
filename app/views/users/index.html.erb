@@ -1,1 +1,28 @@
-<h1>user index</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <%= render 'books/list.html.erb', user: @user, book: @book %>
+        </div>
+        <div class="col-9">
+          <h2>Users</h2>
+          <table class="table">
+            <thead>
+              <th scopr="col">image</th>
+              <th scope="col">name</th>
+              <th scope="col"></th>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td><%= image_tag user.get_profile_image(100,100) %></td>
+                  <td>
+                    <%= user.name %>
+                  </td>
+                  <td><%= link_to 'show', user_path(user.id) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>

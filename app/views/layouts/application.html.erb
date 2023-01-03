@@ -13,7 +13,7 @@
 
   <body class = "d-flex flex-column vh-100">
     <!--子要素をflex item化 上から順に縦並び 高さの指定-->
-    <header class ="bg-dark">
+    <header class ="bg-dark mb-3">
       <nav class = "navbar navbar-expand-lg navbar-dark">
         <div class ="container">
           <a class = "nabvar-brand text-light" href="/"><h2>Bookers</h2></a>
@@ -22,13 +22,13 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class ="navbar-nav ml-auto">
-              <%= link_to root_path do %>
-                <li class ="nav-item mr-2">
-                  <i class="fa-solid fa-house text-light"></i>
-                  <span class="text-light">Home</span>
-                </li>
-              <% end %>
               <% if user_signed_in? %>
+                <%= link_to user_path(current_user.id) do %>
+                  <li class ="nav-item mr-2">
+                    <i class="fa-solid fa-house text-light"></i>
+                    <span class="text-light">Home</span>
+                  </li>
+                  <% end %>
                 <%= link_to users_path do %>
                   <li class="nav-item mr-2">
                     <i class="fa-solid fa-users text-light"></i>
@@ -48,6 +48,12 @@
                   </li>
                 <% end %>
               <% else %>
+                <%= link_to root_path do %>
+                  <li class ="nav-item mr-2">
+                    <i class="fa-solid fa-house text-light"></i>
+                    <span class="text-light">Home</span>
+                  </li>
+                  <% end %>
                 <%= link_to about_path do %>
                   <li class ="nav-item mr-2">
                     <i class="fa-sharp fa-solid fa-link text-light"></i>
@@ -73,9 +79,10 @@
         </div>
       </nav>
     </header>
+    <% flash.each do |message_type, message| %>
+    <%= content_tag :div, message, class: message_type %>
+    <% end %>
     <%= yield %>
-
-
     <footer>
       <div class="container">
         <div class="row">
