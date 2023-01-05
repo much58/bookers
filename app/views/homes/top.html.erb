@@ -1,41 +1,39 @@
-<div class="container">
-  <div class="row">
-    <div class="mx-auto col-7 ">
-      <h1>
-        welcome to <span class="font-weight-bold">
-          <%= link_to do %>
-            <i class="fa-solid fa-book text-dark"></i>
-          <% end %>
-          Bookers</span>!!
-      </h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="mx-auto col-7 ">
-      <p>
-        In<span class="font-weight-bold">
-          <%= link_to do %>
-            <i class="fa-solid fa-book text-dark"></i>
-          <% end %>
-          Bookers,</span>
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="mx-auto col-7">
-      <p>you can share and exchange your opinions, inpressions , and emotions about various books!</p>
-    </div>
-  </div>
+<main>
   <div class="container">
-    <div class="row mb-3">
-      <div class="mx-auto col-7">
-        <%= link_to "Log in", user_session_path, class: "btn btn-info btn-block" %>
+    <div class="row">
+      <div class="mx-auto col-7 ">
+        <h1>
+          welcome to <span class="font-weight-bold">
+              <i class=" fas fa-book text-dark"></i>
+            Bookers</span>!!
+        </h1>
       </div>
     </div>
-    <div class ="row mb-3">
+    <div class="row">
+      <div class="mx-auto col-7 ">
+        <p>
+          In<span class="font-weight-bold">
+              <i class="fas fa-book text-dark"></i>
+            Bookers,</span>
+        </p>
+      </div>
+    </div>
+    <div class="row">
       <div class="mx-auto col-7">
-        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-block" %>
+        <p>you can share and exchange your opinions, inpressions , and emotions about various books!</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row mb-3">
+        <div class="mx-auto col-7">
+          <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-block btn-sm sign_in" %>
+        </div>
+      </div>
+      <div class ="row mb-3">
+        <div class="mx-auto col-7">
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</main>
