@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <%= render 'list', user: @user, book: @book %>
+            <%= render 'list', user: @user, book: @book_new %>
         </div>
         <div class="col-md-8 offset-md-1">
             <h2>Book detail</h2>
@@ -16,24 +16,24 @@
                 <tbody>
                     <tr>
                       <td>
-                        <%= link_to book_path(@books.id) do %>
-                            <%= image_tag @books.user.get_profile_image(100,100) %>
+                        <%= link_to book_path(@book.id) do %>
+                            <%= image_tag @book.user.get_profile_image(100,100) %>
                         <% end %>
                         </td>
                       <td>
-                          <%= link_to book_path(@books.id) do %>
-                              <%= @books.title %>
+                          <%= link_to book_path(@book.id) do %>
+                              <%= @book.title %>
                           <% end %>
                       </td>
-                      <td><%= @books.body %></td>
+                      <td><%= @book.body %></td>
                       <td>
-                          <% if @books.user == current_user %>
-                            <%= link_to 'Edit', edit_book_path(@books), class: "btn btn-success" %>
+                          <% if @book.user == current_user %>
+                            <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-success" %>
                           <% end %>
                       </td>
                       <td>
-                        <% if @books.user == current_user %>
-                             <%= link_to 'Destroy', book_path(@books), method: :delete, class: "btn btn-danger" %>
+                        <% if @book.user == current_user %>
+                             <%= link_to 'Destroy', book_path(@book), method: :delete, class: "btn btn-danger" %>
                         <% end %>
                       </td>
                     </tr>
