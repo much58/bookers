@@ -44,7 +44,7 @@
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <li class ="nav-item">
                     <i class="fas fa-sign-out-alt  text-light"></i>
-                    <span class="text-light">Log out</span>
+                    <span class="text-light">logout</span>
                   </li>
                 <% end %>
               <% else %>
@@ -63,16 +63,16 @@
                 <%= link_to new_user_registration_path do %>
                   <li class ="nav-item mr-2">
                     <i class="fas fa-user-plus text-light"></i>
-                    <span class="text-light">Sign up</span>
+                    <span class="text-light">sign up</span>
                   </li>
                 <% end %>
                 <%= link_to user_session_path do %>
                   <li class ="nav-item">
                     <i class="fas fa-sign-in-alt text-light"></i>
-                    <span class="text-light">Log in</span>
+                    <span class="text-light">login</span>
                   </li>
                 <% end %>
-                  <!--<%= link_to "Log in", user_session_path, class: 'd-inline-flex pl-0 nav-link text-light' %>-->
+                  <!--<%#= link_to "Log in", user_session_path, class: 'd-inline-flex pl-0 nav-link text-light' %>-->
               <% end %>
             </ul>
           </div>
